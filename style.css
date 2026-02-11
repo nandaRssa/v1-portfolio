@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  /* Gabungan: Radial di atas, Linear di bawah */
+
   background:
     radial-gradient(
       circle at 20% 50%,
@@ -94,9 +94,8 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Styling Hamburger Icon */
 .hamburger {
-  display: none; /* Sembunyi di desktop */
+  display: none;
   cursor: pointer;
   font-size: 1.8rem;
   color: #6ceeff;
@@ -106,13 +105,13 @@ nav a:hover {
 
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* Muncul di layar HP */
+    display: block; 
   }
 
   nav ul {
     position: fixed;
     top: 0;
-    right: -100%; /* Sembunyi di kanan luar layar */
+    right: -100%;
     width: 70%;
     height: 100vh;
     background: rgba(17, 9, 9, 0.98);
@@ -125,7 +124,7 @@ nav a:hover {
   }
 
   nav ul.active {
-    right: 0; /* Muncul saat aktif */
+    right: 0; 
   }
 
   nav a {
@@ -900,19 +899,18 @@ nav {
     display: none;
   }
 }
-/* --- NAVBAR RESPONSIVE FIX --- */
+/* NAVBAR RESPONSIVE */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* Pastikan ikon muncul */
+    display: block; 
     position: relative;
     z-index: 1002;
   }
 
-  /* Targetkan ID nav-links agar spesifik */
   #nav-links {
-    display: flex; /* Ubah dari display: none menjadi flex */
+    display: flex;
     position: fixed;
-    right: -100%; /* Sembunyi di kanan */
+    right: -100%; 
     top: 0;
     width: 70%;
     height: 100vh;
@@ -926,7 +924,7 @@ nav {
     border-left: 1px solid rgba(108, 238, 255, 0.2);
   }
 
-  /* Saat kelas active ditambahkan oleh JS */
+
   #nav-links.active {
     right: 0;
   }
@@ -1084,3 +1082,4 @@ nav {
 footer {
   padding: 30px 10px;
 }
+
