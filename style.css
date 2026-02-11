@@ -962,14 +962,36 @@ nav {
     width: min(320px, 80vw);
     height: min(320px, 80vw);
   }
+
+  .card-inner img {
+    width: 200px;
+    height: auto;
+  }
+
+  .card-inner {
+    width: 200px;
+    height: 250px;
+    margin-top: 20px;
+  }
+  .about-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1050px) {
+  .about-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
 }
 
 @media (min-width: 992px) {
-  .about-container {
-    flex-direction: row;
-    text-align: left;
-  }
-
   .about-description {
     text-align: justify;
   }
@@ -1005,16 +1027,6 @@ nav {
     width: 100%;
     max-width: 350px;
     margin: 0 auto;
-  }
-  .card-inner img {
-    width: 200px;
-    height: auto;
-  }
-
-  .card-inner {
-    width: 200px;
-    height: 250px;
-    margin-top: 20px;
   }
 
   .about-section .container {
@@ -1059,12 +1071,6 @@ nav {
     text-align: center;
     gap: 40px;
     margin-top: 10px;
-  }
-
-  .about-card {
-    width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   .hero-buttons {
