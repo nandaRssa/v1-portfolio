@@ -94,6 +94,47 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+/* Styling Hamburger Icon */
+.hamburger {
+  display: none; /* Sembunyi di desktop */
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #6ceeff;
+  z-index: 1001;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Muncul di layar HP */
+  }
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Sembunyi di kanan luar layar */
+    width: 70%;
+    height: 100vh;
+    background: rgba(17, 9, 9, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    border-left: 1px solid rgba(108, 238, 255, 0.2);
+  }
+
+  nav ul.active {
+    right: 0; /* Muncul saat aktif */
+  }
+
+  nav a {
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+}
+
+/* LOADING SCREEN */
 #loading-screen {
   position: fixed;
   top: 0;
@@ -201,36 +242,36 @@ nav a:hover {
   opacity: 0;
   transition: opacity 1s ease;
 }
+
 /* Layout Utama */
 .hero-wrapper {
   display: flex;
-  justify-content: space-between; /* Teks kiri, foto kanan */
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 0 10%; /* Memberi jarak dari pinggir layar */
+  padding: 0 10%;
   gap: 50px;
   position: relative;
   overflow: hidden;
 }
 
-/* Tipografi & Jarak Vertikal */
 .hero-text {
   flex: 1;
   z-index: 2;
 }
 
 .t-introduce {
-  color: #933fbd; /* Ungu neon sesuai request */
+  color: #933fbd;
   font-size: 1.5rem;
   letter-spacing: 5px;
-  margin-bottom: 15px; /* Jarak vertikal ke Judul */
+  margin-bottom: 15px;
   font-weight: 900;
   text-shadow: 0 0 10px rgba(147, 63, 189, 0.6);
 }
 
 .hero-text h1 {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin-bottom: 20px; /* Jarak vertikal ke Subtitle */
+  margin-bottom: 20px;
   line-height: 1.1;
   background: linear-gradient(90deg, #fff, #6ceeff);
   -webkit-background-clip: text;
@@ -240,11 +281,10 @@ nav a:hover {
 .hero-subtitle {
   font-size: 1.2rem;
   color: #cccccc;
-  margin-bottom: 40px; /* Jarak vertikal ke Tombol */
+  margin-bottom: 40px;
   letter-spacing: 1px;
 }
 
-/* Bagian Gambar (Kanan) */
 .hero-image-container {
   flex: 1;
   display: flex;
@@ -263,7 +303,6 @@ nav a:hover {
   transition: all 0.5s ease;
 }
 
-/* Efek Glow Melayang di Belakang Foto */
 .image-glow-ring {
   position: absolute;
   width: 400px;
@@ -279,7 +318,6 @@ nav a:hover {
   animation: pulseRotate 10s infinite linear;
 }
 
-/* Neon yang Melayang di sisi kiri */
 .side-glow {
   position: absolute;
   left: -100px;
@@ -841,4 +879,234 @@ footer {
 footer p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE UPDATES --- */
+
+:root {
+  --nav-padding: 20px 5%;
+}
+
+nav {
+  padding: var(--nav-padding);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    display: none;
+  }
+}
+/* --- NAVBAR RESPONSIVE FIX --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Pastikan ikon muncul */
+    position: relative;
+    z-index: 1002;
+  }
+
+  /* Targetkan ID nav-links agar spesifik */
+  #nav-links {
+    display: flex; /* Ubah dari display: none menjadi flex */
+    position: fixed;
+    right: -100%; /* Sembunyi di kanan */
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all ease-in-out;
+    z-index: 1001;
+    border-left: 1px solid rgba(108, 238, 255, 0.2);
+  }
+
+  /* Saat kelas active ditambahkan oleh JS */
+  #nav-links.active {
+    right: 0;
+  }
+
+  nav a {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    display: block;
+  }
+}
+
+/* Hero Section Responsive */
+.hero-wrapper {
+  flex-wrap: wrap;
+  padding: 80px 5%;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .hero-wrapper {
+    flex-direction: column-reverse;
+    padding-top: 120px;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .img-me {
+    width: min(280px, 70vw);
+    height: min(280px, 70vw);
+  }
+
+  .image-glow-ring {
+    width: min(320px, 80vw);
+    height: min(320px, 80vw);
+  }
+}
+
+/* About Section Responsive */
+.about-section .container {
+  width: 90%;
+  padding: 3rem 1.5rem;
+  margin: 20px auto;
+}
+
+.about-container {
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .about-container {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .about-description {
+    text-align: justify;
+  }
+}
+
+.about-content {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.about-subcontent {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-container {
+  width: 95%;
+  padding: 30px 20px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .btn-download,
+  .btn-contact-me {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .skills-container,
+  .project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .skill-card,
+  .project-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .card-inner img {
+    width: 200px;
+    height: auto;
+  }
+
+  .card-inner {
+    width: 200px;
+    height: 250px;
+    margin-top: 20px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about-subcontent {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .about-subcontent:has(button) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-subcontent button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .shine-underline::after {
+    width: 100%;
+  }
+  .about-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    margin-top: 10px;
+  }
+
+  .about-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Footer Padding */
+footer {
+  padding: 30px 10px;
 }
